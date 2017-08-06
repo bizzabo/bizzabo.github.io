@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	var host =  window.location.host;
+	var ENV = 'dev';
+	if (host.indexOf('dev-www') > -1) {
+		ENV = 'dev';
+	}
+	if (host.indexOf('gang-www') > -1) {
+		ENV = 'gang';
+	}
+	if (host.indexOf('int-www') > -1) {
+		ENV = 'int';
+	}
+	</script>
+	<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+</head>
+<body>
+<section>
+    <section class='welcome' style='display:none' id='popup-get-tickets'>
+        <h3>Please insert your email</h3>
+        <div class='hs_firstname field hs-form-field'>
+            <label placeholder='Enter your First Name'>Email</label>
+            <div class='hs-field-desc' style='display: none;'></div>
+            <div class='input'>
+                <input class='hs-input' name='ticketsEmail' placeholder='' required='required' type='text' value=''>
+            </div>
+        </div>
+        <span class='tickets-error'></span>
+        <a class='send-tickets-btn anim-btn green-arrow' hover-title='Send'>
+            <span>Send</span>
+        </a>
+    </section>
+    <section class='welcome' id='popup-thanks-for-subscribing' style='display:none'>
+        <h3>Thank you for subscribing!</h3>
+        <p>Please check your inbox to verify your email address.</p>
+        <p>We will never spam you (that's a promise).</p>
+        <p>The Bizzabo Team.</p>
+    </section>
+    <section class='welcome' id='popup-thanks-for-conforming' style='display:none'>
+        <h3>Thank you!</h3>
+        <p>You're now subscribed to Bizzabo's mailing list.</p>
+    </section>
+    <section class='welcome' id='popup-validating' style='display:none'>
+        <h3></h3>
+        <p>Validating your email...</p>
+        <p> </p>
+    </section>
+    <section class='welcome' id='popup-email-confirm-success' style='display:none'>
+        <h3>Great!</h3>
+        <p>Your email is now confirmed.</p>
+        <p>Thank you for joining the Bizzabo family.</p>
+    </section>
+    <section class='welcome' id='popup-email-confirm-error' style='display:none'>
+        <h3>Validation failure!</h3>
+        <p>We couldn't validate your email.</p>
+        <p>
+            Please check the validation address again, or contact us at:
+        </p>
+    </section>
+    <section class='welcome' id='popup-unsubscribing' style='display:none'>
+        <h3></h3>
+        <p>Unsubscribing your email...</p>
+        <p> </p>
+    </section>
+    <section class='welcome' id='popup-unsubscribe-success' style='display:none'>
+        <h3>Done!</h3>
+        <p>You'll no longer get emails from this organizer.</p>
+        <p></p>
+    </section>
+    <section class='welcome' id='popup-unsubscribe-error' style='display:none'>
+        <h3>Whoops! Something went wrong.</h3>
+        <p>We couldn't unsubscribe your email.</p>
+        <p>
+            Please re-check the link's address or contact us at
+        </p>
+    </section>
+    <section class='welcome' id='popup-demo-request-received' style='display:none'>
+        <h3>Thanks, we received your request!</h3>
+        <p>We’ll get back to you within 1 business day.</p>
+    </section>
+    <section class='welcome' id='popup-approving-private-event-request' style='display:none'>
+        <h3></h3>
+        <p>Approving request...</p>
+        <p></p>
+    </section>
+    <section class='welcome' id='popup-private-event-request-success' style='display:none'>
+        <h3>Great!</h3>
+        <p>The attendee's request has been approved.</p>
+    </section>
+    <section class='welcome' id='popup-private-event-request-error' style='display:none'>
+        <h3>Approval failure!</h3>
+        <p>We couldn't approve the attendee's request.</p>
+        <p>
+            Please try again, or contact us at:
+        </p>
+    </section>
+</section>
+<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="easyXDM/easyXDM.min.js"></script>
+	<script type="text/javascript" src="bzapi.js"></script>
+	<script type="text/javascript" src="actions.js"></script>
+</body>
+</html>
