@@ -86,6 +86,10 @@
         $(selector).css('background-color', 'red');
     };
 
+    var closePopup = function(selector) {
+      $(selector).css('display', 'none');
+    };
+
     var handleParams = function(params, isHash) {
         if (params[actions.MAILING_LIST_WAIT_FOR_CONFIRMATION]) {
             showPopup('#popup-thanks-for-subscribing');
@@ -95,12 +99,16 @@
             showPopup('#popup-validating');
             newUserEmailConfirmation(params);
         } else if (params[actions.UNSUBSCRIBE]) {
-            showPopup('#popup-unsubscribing');
-            if (isHash) {
-                legacyUnsubscribeEmail(params);
-            } else {
-                unsubscribeEmail(params);
-            }
+            showPopup('#popup-unsubscribe-confirm');
+            $('.confirm-unsubscribe-btn').on('click', function() {
+              closePopup('#popup-unsubscribe-confirm');
+              showPopup('#popup-unsubscribing');
+              if (isHash) {
+                  legacyUnsubscribeEmail(params);
+              } else {
+                  unsubscribeEmail(params);
+              }
+            })
         } else if (params[actions.REQUEST_DEMO_THANKS_FOR_CONFIRMING]) {
             showPopup('#popup-demo-request-received');
             window._gaq && window._gaq.push(['_trackEvent', 'Marketing Actions', 'popup opened', actions.REQUEST_DEMO_THANKS_FOR_CONFIRMING]);
